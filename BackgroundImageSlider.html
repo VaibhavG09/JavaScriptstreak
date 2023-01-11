@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    #slideshow {
+      position: relative;
+      width: 100%;
+      height: 500px;
+      margin: 0 auto;
+    }
+    #slideshow > div {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+    #slideshow > div:first-child {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+  <div id="slideshow">
+    <div style="background-image: url('image1.jpg');"></div>
+    <div style="background-image: url('image2.jpg');"></div>
+    <div style="background-image: url('image3.jpg');"></div>
+  </div>
+
+  <script>
+    var slideIndex = 0;
+    showSlides();
+    function showSlides() {
+      var i;
+      var slides = document.getElementById("slideshow").getElementsByTagName("div");
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.opacity = 0;
+      }
+      slideIndex++;
+      if (slideIndex > slides.length) {slideIndex = 1}
+      slides[slideIndex-1].style.opacity = 1;
+      setTimeout(showSlides, 2000); // Change image every 2 seconds
+    }
+  </script>
+</body>
+</html>
