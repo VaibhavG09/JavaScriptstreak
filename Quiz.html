@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JavaScript Quiz</title>
+  <script>
+    // Questions and answers array
+    var questions = [
+      {
+        question: "What is the name of the programming language used to make this quiz?",
+        choices: ["JavaScript", "HTML", "CSS"],
+        correctAnswer: 0
+      },
+      {
+        question: "What is the name of the function used to print output to the console?",
+        choices: ["console.write()", "console.log()", "console.print()"],
+        correctAnswer: 1
+      },
+      {
+        question: "What is the name of the JavaScript object used to manipulate the DOM?",
+        choices: ["DOM", "document", "window"],
+        correctAnswer: 1
+      }
+    ];
+
+    // Variables to keep track of quiz state
+    var currentQuestion = 0;
+    var score = 0;
+
+    // Function to display next question
+    function nextQuestion() {
+      var question = document.getElementById("question");
+      var choices = document.getElementsByName("choices");
+      question.innerHTML = questions[currentQuestion].question;
+      for (var i = 0; i < choices.length; i++) {
+        choices[i].innerHTML = questions[currentQuestion].choices[i];
+      }
+    }
+
+    // Function to check answer
+    function checkAnswer() {
+      var choices = document.getElementsByName("choices");
+      for (var i = 0; i < choices.length; i++) {
+        if (choices[i].checked) {
+          if (i === questions[currentQuestion].correctAnswer) {
+            score++;
+          }
+          break;
+        }
+      }
+      currentQuestion++;
+      if (currentQuestion === questions.length) {
+        endQuiz();
+      } else {
+        nextQuestion();
+      }
+    }
+
+    // Function to end quiz and show score
+    function endQuiz() {
+      var quiz = document.getElementById("quiz");
+      var results = document.getElementById("results");
+      quiz.innerHTML = "";
+      results.innerHTML = "You got " + score + " out of " + questions.length + " questions correct.";
+    }
+  </script>
+</head>
+<body onload="nextQuestion()">
+  <h1>JavaScript Quiz</h1>
+  <div id="quiz">
+    <div id="question"></div>
+    <form>
+      <div>
+        <input type="radio" name="choices" value="0">
+        <label for="choices"></label>
+      </div>
+      <div>
+        <input type="radio" name="choices" value="1">
+        <label for="choices"></label>
+      </div>
+      <div>
+        <input type="radio" name="choices" value="2">
+        <label for="choices"></label>
+      </div>
+    </form>
+    <button onclick="checkAnswer()">Submit</button>
+  </div>
+  <div id="results"></div>
+</body>
