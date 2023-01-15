@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Restaurant Menu</title>
+</head>
+<body>
+
+<h1>Menu</h1>
+
+<div id="menu"></div>
+
+<script>
+  const menuItems = [
+    {name: "Pizza", price: "$10.99"},
+    {name: "Pasta", price: "$9.99"},
+    {name: "Salad", price: "$5.99"},
+    {name: "Sandwich", price: "$7.99"}
+  ];
+
+  const menuList = document.getElementById("menu");
+
+  for (let i = 0; i < menuItems.length; i++) {
+    let menuItem = document.createElement("p");
+    menuItem.innerHTML = menuItems[i].name + " - " + menuItems[i].price;
+    menuList.appendChild(menuItem);
+  }
+</script>
+
+</body>
+</html>
