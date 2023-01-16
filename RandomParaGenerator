@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Random Paragraph Generator</title>
+    <style>
+      /* CSS styles go here */
+      button {
+        padding: 10px 20px;
+        font-size: 16px;
+        border-radius: 5px;
+        background-color: #4CAF50;
+        color: white;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Random Paragraph Generator</h1>
+    <button id="generate-button">Generate</button>
+    <p id="output"></p>
+    <script>
+      // JavaScript code goes here
+      const generateButton = document.getElementById("generate-button");
+      const output = document.getElementById("output");
+
+      const paragraphs = [
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.",
+        "Sed dui lorem, adipiscing in adipiscing et, interdum nec metus. Mauris ultricies, justo eu convallis placerat, felis enim ornare nisi, vitae mattis nulla ante id dui.",
+        "Proin aliquet lorem id felis. Curabitur vel libero at mauris nonummy tincidunt. Donec imperdiet. Vestibulum sem sem, lacinia vel, molestie et, laoreet eget, urna.",
+        "Curabitur viverra faucibus pede. Morbi lobortis. Donec dapibus. Donec tempus. Ut arcu enim, rhoncus ac, venenatis eu, porttitor mollis, dui.",
+        "Pellentesque egestas, neque sit amet convallis pulvinar, justo nulla eleifend augue, ac auctor orci leo non est. Quisque id mi. Ut tincidunt tincidunt erat."
+      ];
+
+      generateButton.addEventListener("click", function() {
+        let randomIndex = Math.floor(Math.random() * paragraphs.length);
+        output.innerHTML = paragraphs[randomIndex];
+      });
+    </script>
+  </body>
+</html>
+
