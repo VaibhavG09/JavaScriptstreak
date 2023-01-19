@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tip Calculator</title>
+  <style>
+    /* CSS styling goes here */
+  </style>
+</head>
+<body>
+  <h1>Tip Calculator</h1>
+  <form>
+    Bill amount: $ <input type="text" id="billAmount"><br>
+    Tip percentage: <input type="text" id="tipPercentage">%<br>
+    <input type="button" value="Calculate" onclick="calculateTip()">
+  </form>
+  <p>Tip: $<span id="tip"></span></p>
+  <p>Total: $<span id="total"></span></p>
+
+  <script>
+    // JavaScript functions go here
+    function calculateTip() {
+      var billAmount = document.getElementById("billAmount").value;
+      var tipPercentage = document.getElementById("tipPercentage").value;
+      var tip = (billAmount * (tipPercentage / 100)).toFixed(2);
+      var total = (parseFloat(billAmount) + parseFloat(tip)).toFixed(2);
+      document.getElementById("tip").innerHTML = tip;
+      document.getElementById("total").innerHTML = total;
+    }
+  </script>
+</body>
+</html>
