@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body{
+    font-family: 'Arvo', serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: rgb(6, 184, 18);
+    color: rgb(209, 243, 18);
+    overflow: hidden;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.heading{
+    padding-bottom: 50px;
+    font-size: 2rem;
+}
+#wrapper-toast{
+    position: absolute;
+    width: 350px;
+    padding: 20px;
+    right: 0;
+    top: 5%;
+    justify-content: space-around;
+    align-items: center;
+    display: flex;
+    background: #fff;
+    color: rgb(2, 4, 48);
+    border-radius: 6px;
+    transform: translateX(400px);
+    transition: 1s;
+}
+#wrapper-toast i{
+    font-size: 40px;
+    color: #2d2daf;
+}
+
+#wrapper-toast button{
+    position: absolute;
+    right: 20px;
+    top: 5px;
+    border: none;
+    background: transparent;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.btn-toast{
+    padding: 20px 50px;
+    border: none;
+    border-radius: 8px;
+    background: #fff;
+    color: black;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+    </style>
+    <title>Push Notification</title>
+</head>
+<body>
+    <h2 class="heading">Register Here</h2>
+    <div id="wrapper-toast">
+        <i class="bx bxs-check-square"></i>
+        <div class="text">
+            <h4>Success</h4>
+            <p>Your have been registered successfully</p>
+        </div>
+        <button onclick="closeToast();">
+            &times;
+        </button>
+    </div>
+    <button class="btn-toast" onclick="showToast();">Register</button>
+
+
+    <script>
+        const toast = document.getElementById("wrapper-toast");
+
+function showToast() {
+    toast.style.transform = 'translateX(0px)';
+}
+
+function closeToast() {
+    toast.style.transform = 'translateX(400px)';
+}
+    </script>
