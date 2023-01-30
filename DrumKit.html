@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Drum Kit</title>
+	<link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+	<style>
+		body {
+	text-align: center;
+	background-color: #280202;
+}
+
+h1 {
+	font-size: 8rem;
+	color: #DBEDF3;
+	font-family: straight;
+	text-shadow: 4.5px 0 #aa778e;
+}
+
+.w {
+	background-image: url("images/w.png");
+}
+
+.a {
+	background-image: url("images/a.png");
+}
+
+.s {
+	background-image: url("images/s.png");
+}
+
+.d {
+	background-image: url("images/d.png");
+}
+
+.j {
+	background-image: url("images/j.png");
+}
+
+.k {
+	background-image: url("images/k.png");
+}
+
+.l {
+	background-image: url("images/l.png");
+}
+
+.all {
+	margin: 10% auto;
+}
+
+.animation {
+	box-shadow: 0 5px 6.5px 0 #011e28;
+	opacity: 0.5;
+}
+
+.button {
+	outline: none;
+	border: 8px solid #000000;
+	font-size: 7rem;
+	font-family: 'Arvo', cursive;
+	line-height: 3;
+	font-weight: 980;
+	color: #cf80a4;
+	text-shadow: 4px 0 #59b6d4;
+	border-radius: 20px;
+	display: inline-block;
+	width: 200px;
+	height: 200px;
+	text-align: center;
+	margin: 12px;
+	background-color: rgb(191, 155, 155);
+}
+
+	</style>
+	<h1>The Drum Kit</h1>
+
+	<div class="all">
+		<button class="w button">w</button>
+		<button class="a button">a</button>
+		<button class="s button">s</button>
+		<button class="d button">d</button>
+		<button class="j button">j</button>
+		<button class="k button">k</button>
+		<button class="l button">l</button>
+	</div>
+	<script src="drumKit.js"></script>
+	<script>
+		var numberOfButtons = document.querySelectorAll(".button").length;
+
+for (var j = 0; j < numberOfButtons; j++) {
+
+document.querySelectorAll(".button")[j]
+	.addEventListener("click", function() {
+	var buttonStyle = this.innerHTML;
+	sound(buttonStyle);
+	animation(buttonStyle);
+});
+}
+document.addEventListener("keypress", function(event) {
+sound(event.key);
+animation(event.key);
+});
+function sound(key) {
+switch (key) {
+	case "w":
+	var sound1 = new Audio("music/w.mp3");
+	sound1.play();
+	break;
+
+	case "a":
+	var sound2 = new Audio("music/a.mp3");
+	sound2.play();
+	break;
+
+	case "s":
+	var sound3 = new Audio('music/s.mp3');
+	sound3.play();
+	break;
+
+	case "d":
+	var sound4 = new Audio('music/d.mp3');
+	sound4.play();
+	break;
+
+	case "j":
+	var sound5 = new Audio('music/j.mp3');
+	sound5.play();
+	break;
+
+	case "k":
+	var sound6 = new Audio('music/k.mp3');
+	sound6.play();
+	break;
+
+	case "l":
+	var sound7 = new Audio('music/l.mp3');
+	sound7.play();
+	break;
+
+	default: console.log(key);
+}
+}
+function animation(currentKey) {
+var activeButton = document.querySelector("." + currentKey);
+
+activeButton.classList.add("animation");
+
+setTimeout(function() {
+	activeButton.classList.remove("animation");
+}, 100);
+}
+
+	</script>
+</body>
+
+</html>
